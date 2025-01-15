@@ -10,8 +10,8 @@ VIEW_3D_TEMPLATE_NAME = "FP_3D_NWC_EXP"
 
 def create_level_3d_view(document, view_type, level, level_above, scope_box):
 	
-	level_el = level.Elevation
-	level_above_el = level_above.Elevation
+	level_el = level.ProjectElevation
+	level_above_el = level_above.ProjectElevation
 	
 	sb_min = scope_box.Min
 	sb_max = scope_box.Max
@@ -77,6 +77,7 @@ for i in range(len(sorted_levels)-1):
 										   overall_sb_el.get_BoundingBox(active_view))
 
 		new_3d_view.Name =  "FP_3D_" + str(i).zfill(a) + "_" + sorted_levels[i].Name + "_NWC_EXP"
+		print(new_3d_view.Name)
 
 		new_3d_view.ViewTemplateId = view_3d_template_id
 		trans.Commit()
